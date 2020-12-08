@@ -1,0 +1,23 @@
+---
+
+package:
+  mysql-wsrep-server-5.6:
+    installed: true
+  mysql-wsrep-client-5.6:
+    installed: true
+
+command:
+  mysql --version:
+    exit-status: 0
+    stdout:
+      - "/mysql(.)*Distrib 5.6/"
+  mysqladmin  --user=admin --password=bTxKGlBi ping:
+    exit-status: 0
+    stdout:
+      - "mysqld is alive"
+  mysql -u root --execute "show databases":
+    exit-status: 0
+    stdout:
+      - "manala_test_1"
+      - "manala_test_1"
+      - "!manala_test_3"
